@@ -1,0 +1,93 @@
+.facilities {
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+  position: relative;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 14px; 
+  left: 14px;
+  width: 16px; 
+  height: 16px;
+  border-top: 1.5px solid var(--gold);
+  border-left: 1.5px solid var(--gold);
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: var(--gold);
+  background: var(--card-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px var(--gold-glow);
+}
+
+.cardIcon {
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.cardTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; 
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.cardText {
+  color: var(--text-muted); 
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

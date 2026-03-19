@@ -1,0 +1,150 @@
+.about {
+  padding: 100px 0 0; /* Marquee fills the bottom */
+  position: relative;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.title {
+  margin-bottom: 24px;
+}
+
+.text {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+  max-width: 500px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+}
+
+/* Image */
+.imgWrap {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: visible;
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+.imgFrame {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transform: translate(14px, 14px);
+  z-index: 0;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 48px;
+  align-items: center;
+}
+
+.stat {
+  text-align: center;
+}
+
+.statNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 60px;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+/* Marquee */
+.marqueeWrap {
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  background: var(--bg-alt);
+  padding: 14px 0;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee {
+  display: flex;
+  width: 100%;
+}
+
+.marqueeInner {
+  display: flex;
+  white-space: nowrap;
+  animation: marqueeScroll 20s linear infinite;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  gap: 12px; 
+}
+
+.marqueeInner span {
+  padding-right: 12px;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .imgWrap {
+    order: -1;
+  }
+  .stats {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .statDivider {
+    display: none;
+  }
+  .stat {
+    flex: 1 1 40%;
+  }
+}

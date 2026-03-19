@@ -1,0 +1,209 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 24px 0;
+  transition: background 0.5s var(--transition),
+              padding 0.4s var(--transition),
+              border-color 0.4s var(--transition),
+              backdrop-filter 0.5s var(--transition);
+  border-bottom: 1px solid transparent;
+  background: transparent;
+}
+
+.scrolled {
+  background: var(--bg-main);
+  opacity: 0.95;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.logoMonogram {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 28px;
+}
+
+.logoText {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .logoText {
+    display: block;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.link {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: color var(--transition);
+  position: relative;
+  padding: 4px 0;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+  transform-origin: center;
+}
+
+.link:hover {
+  color: var(--gold);
+}
+
+.link:hover::after,
+.link:focus::after {
+  transform: scaleX(1);
+}
+
+.bookBtn {
+  display: none;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  font-family: 'Outfit', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .bookBtn {
+    display: inline-block;
+  }
+}
+
+.bookBtn:hover {
+  background: var(--gold);
+  color: #0A0A0A;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--text-primary);
+  transition: var(--transition);
+  transform-origin: center;
+}
+
+.hamburgerActive span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--gold);
+}
+.hamburgerActive span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburgerActive span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--gold);
+}
+
+/* Mobile overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-main);
+  opacity: 0.95;
+  backdrop-filter: blur(6px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    background: var(--bg-alt);
+    padding: 36px;
+    transition: right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 999;
+    border-left: 1px solid var(--border);
+  }
+
+  .linksOpen {
+    right: 0;
+  }
+
+  .link {
+    font-size: 14px;
+    letter-spacing: 4px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

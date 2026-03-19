@@ -1,0 +1,118 @@
+.location {
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.mapWrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  filter: grayscale(0.3) opacity(0.9);
+  margin-bottom: 32px;
+}
+
+.mapWrap iframe {
+  display: block;
+}
+
+.gridInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Base card styles similar to Facilities */
+.infoCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+  position: relative;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.infoCard::before {
+  content: '';
+  position: absolute;
+  top: 14px; 
+  left: 14px;
+  width: 16px; 
+  height: 16px;
+  border-top: 1.5px solid var(--gold);
+  border-left: 1.5px solid var(--gold);
+  transition: var(--transition);
+}
+
+.infoCard:hover {
+  border-color: var(--gold);
+  background: var(--card-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px var(--gold-glow);
+}
+
+.infoIcon {
+  margin-bottom: 20px;
+}
+
+.infoCard h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; 
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.infoCard p {
+  color: var(--text-muted); 
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.directionsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: var(--transition);
+}
+
+.directionsBtn:hover {
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold-bright);
+}
+
+@media (max-width: 900px) {
+  .gridInfo {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
